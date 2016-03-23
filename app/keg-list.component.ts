@@ -22,9 +22,8 @@ export class KegListComponent {
   constructor() {
     this.onKegSelect = new EventEmitter();
   }
-  kegClicked(clickedKeg: Keg): void{
-    console.log('child', clickedKeg);
-    
+  kegClicked(clickedKeg: Keg): void {
+
     this.selectedKeg = clickedKeg;
     this.onKegSelect.emit(clickedKeg);
   }
@@ -35,6 +34,6 @@ export class KegListComponent {
   }
   onChangeKeg(filterOption){
     this.filterEmpty = filterOption;
-    console.log(this.filterEmpty);
   }
+
 }

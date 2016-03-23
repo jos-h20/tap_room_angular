@@ -8,6 +8,7 @@ import {Keg} from './keg.model';
 export class IsEmptyPipe implements PipeTransform {
   transform(input: Keg[], args) {
     var desiredEmptyState = args[0];
+
     if(desiredEmptyState === "isEmpty") {
       return input.filter((keg) => {
         return keg.isEmpty;

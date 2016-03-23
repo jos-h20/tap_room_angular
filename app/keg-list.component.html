@@ -1,7 +1,7 @@
 <select (change)="onChangeKeg($event.target.value)" class="filter">
-  <option value="all">Show All</option>
+  <option value="all" selected="selected">Show All</option>
   <option value="isEmpty">Show Empty</option>
-  <option value="notEmpty" selected="selected">Show Not Empty</option>
+  <option value="notEmpty">Show Not Empty</option>
 </select>
 <keg-display *ngFor="#currentKeg of kegList | isEmpty:filterEmpty"
   (click)="kegClicked(currentKeg)"

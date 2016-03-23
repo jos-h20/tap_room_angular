@@ -9,7 +9,7 @@ import { Keg } from './keg.model';
     <div>
       <input *ngIf="keg.isEmpty" type="checkbox" checked (click)="toggleEmpty(false)"/>
       <input *ngIf="!keg.isEmpty" type="checkbox" (click)="toggleEmpty(true)"/>
-      <label>{{ keg.name }}</label>
+
 
       <h3>{{ keg.name }}</h3>
       <h5>Brewery: {{ keg.brand }}</h5>
@@ -25,6 +25,7 @@ import { Keg } from './keg.model';
 export class KegComponent {
   public keg: Keg;
   public onPintPour: EventEmitter<Keg>;
+
   constructor() {
     this.onPintPour = new EventEmitter();
   }
@@ -34,6 +35,8 @@ export class KegComponent {
   }
   pintPour(keg: Keg) {
     if (keg.pintsLeft > 0) keg.pintsLeft --;
+    if (keg.pintsLeft <= 100) keg.isEmpty = true; alert("Y'all almost outta beer!");
     this.onPintPour.emit(keg);
   }
+
 }
