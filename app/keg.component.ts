@@ -6,18 +6,15 @@ import { Keg } from './keg.model';
   inputs: ['keg'],
   outputs: ['onPintPour'],
   template: `
-    <div>
-      <input *ngIf="keg.isEmpty" type="checkbox" checked (click)="toggleEmpty(false)"/>
-      <input *ngIf="!keg.isEmpty" type="checkbox" (click)="toggleEmpty(true)"/>
-
-
+    <div class="display">
+      <input *ngIf="keg.isEmpty" type="checkbox" checked (click)="toggleEmpty(false)" class="check"/>
+      <input *ngIf="!keg.isEmpty" type="checkbox"  (click)="toggleEmpty(true)" class="check"/>
       <h3>{{ keg.name }}</h3>
       <h5>Brewery: {{ keg.brand }}</h5>
       <p>Pints Left: {{ keg.pintsLeft }}</p>
       <p>Price Per Pint: \$\{{ keg.price }}</p>
+      <button (click)="pintPour(keg)" class="btn-primary btn-lg">Pour Beer</button>
     </div>
-    <div>
-      <button (click)="pintPour(keg)">Pour Beer</button>
 
   `
 })
