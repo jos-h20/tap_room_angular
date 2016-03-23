@@ -35,7 +35,7 @@ export class KegComponent {
   }
   pintPour(keg: Keg) {
     if (keg.pintsLeft > 0) keg.pintsLeft --;
-    if (keg.pintsLeft <= 100) keg.isEmpty = true; alert("Y'all almost outta beer!");
+    if (keg.pintsLeft <= 100) keg.isEmpty = true;
     this.onPintPour.emit(keg);
   }
 
